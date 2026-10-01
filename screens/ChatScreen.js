@@ -49,7 +49,7 @@ export default function ChatScreen() {
       {
         _id: 1,
         text: "Hello, I am " + face.name + ", How Can I help you?",
-        createdAt: new Date(),
+        createdAt: Date.now(),
         user: {
           _id: 2,
           name: "React Native",
@@ -87,7 +87,7 @@ export default function ChatScreen() {
           const chatAIResp = {
             _id: Math.random() * (9999999 - 1),
             text: response.content,
-            createdAt: new Date(),
+            createdAt: Date.now(),
             user: {
               _id: 2,
               name: "React Native",
@@ -109,7 +109,7 @@ export default function ChatScreen() {
           const chatAIResp = {
             _id: Math.random() * (9999999 - 1),
             text: "Sorry, I cannot help with it",
-            createdAt: new Date(),
+            createdAt: Date.now(),
             user: {
               _id: 2,
               name: "React Native",
@@ -151,6 +151,7 @@ export default function ChatScreen() {
         containerStyle={GlobalStyles.inputToolbarContainer}
         textInputStyle={GlobalStyles.inputToolbarText}
         textInputProps={{
+          ...props.textInputProps,
           editable: true,
           placeholder: "Type a message...",
           placeholderTextColor: "#eee",
